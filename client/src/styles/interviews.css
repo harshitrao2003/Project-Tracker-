@@ -1,0 +1,271 @@
+/* ============================================
+   interviews.css — Mock Interview Tracker Styles
+   ============================================ */
+
+/* ─────────────────────────────────────────
+   ANALYTICS CARDS ROW
+   ───────────────────────────────────────── */
+.interview-analytics {
+  display:          flex;
+  gap:              0.75rem;
+  margin-bottom:    1.25rem;
+  flex-wrap:        wrap;
+}
+
+.interview-stat-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          1rem 1.25rem;
+  display:          flex;
+  align-items:      center;
+  gap:              0.75rem;
+  flex:             1;
+  min-width:        130px;
+  transition:       var(--transition);
+}
+
+.interview-stat-card:hover {
+  border-color:     var(--primary-color);
+}
+
+.interview-stat-icon {
+  font-size:        1.5rem;
+}
+
+.interview-stat-value {
+  font-size:        1.75rem;
+  font-weight:      700;
+  color:            var(--text-light);
+  line-height:      1;
+}
+
+.interview-stat-label {
+  font-size:        0.75rem;
+  color:            var(--text-muted);
+  margin-top:       0.2rem;
+}
+
+/* ─────────────────────────────────────────
+   TYPE PERFORMANCE GRID
+   ───────────────────────────────────────── */
+.interview-type-grid {
+  display:          flex;
+  gap:              0.6rem;
+  flex-wrap:        wrap;
+  margin-bottom:    1.25rem;
+}
+
+.interview-type-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius-sm);
+  padding:          0.6rem 1rem;
+  display:          flex;
+  align-items:      center;
+  gap:              0.6rem;
+  font-size:        0.82rem;
+  transition:       var(--transition);
+}
+
+.interview-type-card:hover {
+  border-color:     var(--primary-color);
+}
+
+.interview-type-name {
+  font-weight:      600;
+  color:            var(--text-light);
+}
+
+.interview-type-count {
+  color:            var(--text-muted);
+  font-size:        0.78rem;
+}
+
+.interview-type-score {
+  font-weight:      700;
+  font-size:        0.78rem;
+}
+
+/* ─────────────────────────────────────────
+   INTERVIEW GRID
+   ───────────────────────────────────────── */
+.interview-grid {
+  display:          grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap:              1rem;
+}
+
+/* ─────────────────────────────────────────
+   INTERVIEW CARD
+   ───────────────────────────────────────── */
+.interview-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          1.25rem;
+  display:          flex;
+  flex-direction:   column;
+  gap:              0.75rem;
+  transition:       var(--transition);
+}
+
+.interview-card:hover {
+  border-color:     var(--primary-color);
+  box-shadow:       var(--shadow);
+}
+
+/* ─────────────────────────────────────────
+   CARD HEADER
+   ───────────────────────────────────────── */
+.interview-card-header {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  gap:              1rem;
+}
+
+.interview-card-title-row {
+  display:          flex;
+  align-items:      center;
+  gap:              0.75rem;
+}
+
+.interview-type-icon {
+  font-size:        1.5rem;
+  flex-shrink:      0;
+}
+
+.interview-card-company {
+  font-size:        0.95rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  margin-bottom:    0.1rem;
+}
+
+.interview-card-type {
+  font-size:        0.78rem;
+  color:            var(--text-muted);
+}
+
+.interview-score {
+  font-size:        1.5rem;
+  font-weight:      700;
+  line-height:      1;
+  flex-shrink:      0;
+}
+
+.interview-score span {
+  font-size:        0.75rem;
+  color:            var(--text-muted);
+  font-weight:      400;
+}
+
+/* ─────────────────────────────────────────
+   BADGES
+   ───────────────────────────────────────── */
+.interview-card-badges {
+  display:          flex;
+  align-items:      center;
+  gap:              0.5rem;
+  flex-wrap:        wrap;
+}
+
+.interview-result-badge {
+  padding:          0.2rem 0.65rem;
+  border-radius:    20px;
+  font-size:        0.75rem;
+  font-weight:      600;
+}
+
+.interview-difficulty-badge {
+  padding:          0.2rem 0.65rem;
+  border-radius:    20px;
+  font-size:        0.72rem;
+  background-color: var(--surface-color);
+  color:            var(--text-muted);
+  border:           1px solid var(--border-color);
+}
+
+.interview-duration-badge {
+  font-size:        0.72rem;
+  color:            var(--text-muted);
+}
+
+/* ─────────────────────────────────────────
+   TOPICS
+   ───────────────────────────────────────── */
+.interview-topics {
+  display:          flex;
+  flex-wrap:        wrap;
+  gap:              0.35rem;
+}
+
+.interview-topic-tag {
+  background-color: rgba(108, 99, 255, 0.1);
+  border:           1px solid rgba(108, 99, 255, 0.2);
+  border-radius:    20px;
+  padding:          0.15rem 0.55rem;
+  font-size:        0.7rem;
+  color:            var(--primary-color);
+}
+
+/* ─────────────────────────────────────────
+   FEEDBACK & NEXT ACTION
+   ───────────────────────────────────────── */
+.interview-feedback {
+  font-size:        0.82rem;
+  color:            var(--text-muted);
+  line-height:      1.5;
+  display:          -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow:         hidden;
+}
+
+.interview-next-action {
+  display:          flex;
+  align-items:      flex-start;
+  gap:              0.4rem;
+  font-size:        0.8rem;
+  color:            var(--secondary-color);
+  background-color: rgba(3, 218, 198, 0.08);
+  border:           1px solid rgba(3, 218, 198, 0.2);
+  border-radius:    var(--border-radius-sm);
+  padding:          0.4rem 0.6rem;
+}
+
+/* ─────────────────────────────────────────
+   CARD FOOTER
+   ───────────────────────────────────────── */
+.interview-card-footer {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  padding-top:      0.75rem;
+  border-top:       1px solid var(--border-color);
+  margin-top:       auto;
+}
+
+.interview-card-date {
+  font-size:        0.75rem;
+  color:            var(--text-muted);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .interview-analytics {
+    gap:              0.5rem;
+  }
+
+  .interview-stat-card {
+    min-width:        calc(50% - 0.25rem);
+  }
+
+  .interview-grid {
+    grid-template-columns: 1fr;
+  }
+}

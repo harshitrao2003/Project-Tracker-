@@ -1,0 +1,117 @@
+/* ============================================
+   navbar.css — Top Navbar Styles
+   ============================================ */
+
+.navbar {
+  height:           var(--navbar-height);
+  background-color: var(--surface-color);
+  border-bottom:    1px solid var(--border-color);
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  padding:          0 1.5rem;
+  position:         sticky;
+  top:              0;
+  z-index:          50;
+}
+
+/* ─────────────────────────────────────────
+   LEFT SIDE
+   ───────────────────────────────────────── */
+.navbar-left {
+  display:          flex;
+  align-items:      center;
+  gap:              1rem;
+}
+
+/* Hamburger menu — hidden on desktop */
+.navbar-menu-btn {
+  background:       none;
+  border:           none;
+  color:            var(--text-color);
+  font-size:        1.25rem;
+  cursor:           pointer;
+  padding:          0.25rem 0.5rem;
+  border-radius:    var(--border-radius-sm);
+  transition:       var(--transition);
+  display:          none;
+}
+
+.navbar-menu-btn:hover {
+  background-color: var(--card-color);
+}
+
+.navbar-title {
+  font-size:        1.1rem;
+  font-weight:      600;
+  color:            var(--text-light);
+}
+
+/* ─────────────────────────────────────────
+   RIGHT SIDE
+   ───────────────────────────────────────── */
+.navbar-right {
+  display:          flex;
+  align-items:      center;
+  gap:              1rem;
+}
+
+.navbar-user {
+  display:          flex;
+  align-items:      center;
+  gap:              0.75rem;
+}
+
+.navbar-avatar {
+  width:            36px;
+  height:           36px;
+  border-radius:    50%;
+  background:       linear-gradient(
+                      135deg,
+                      var(--primary-color),
+                      var(--secondary-color)
+                    );
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  font-size:        0.875rem;
+  font-weight:      700;
+  color:            var(--text-light);
+  flex-shrink:      0;
+}
+
+.navbar-user-info {
+  display:          flex;
+  flex-direction:   column;
+}
+
+.navbar-user-name {
+  font-size:        0.875rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  line-height:      1.2;
+}
+
+.navbar-user-role {
+  font-size:        0.75rem;
+  color:            var(--text-muted);
+  line-height:      1.2;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .navbar-menu-btn {
+    display:        flex;
+  }
+
+  .navbar-user-info {
+    display:        none;
+  }
+
+  .navbar-title {
+    font-size:      1rem;
+  }
+}

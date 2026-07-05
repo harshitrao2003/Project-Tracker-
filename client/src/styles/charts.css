@@ -1,0 +1,260 @@
+/* ============================================
+   charts.css — Recharts & Chart Styles
+   Overrides Recharts defaults to match
+   our dark theme using CSS variables
+   ============================================ */
+
+/* ─────────────────────────────────────────
+   CHART CARD WRAPPER
+   ───────────────────────────────────────── */
+.chart-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          1.25rem;
+  transition:       var(--transition);
+}
+
+.chart-card:hover {
+  border-color:     var(--primary-color);
+}
+
+.chart-header {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  margin-bottom:    1.25rem;
+}
+
+.chart-title {
+  font-size:        1rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  margin-bottom:    0.2rem;
+}
+
+.chart-subtitle {
+  font-size:        0.78rem;
+  color:            var(--text-muted);
+}
+
+.chart-body {
+  width:            100%;
+  position:         relative;
+}
+
+/* ─────────────────────────────────────────
+   CHART STATES
+   Loading / Empty / Error
+   ───────────────────────────────────────── */
+.chart-state {
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  justify-content:  center;
+  height:           100%;
+  gap:              0.75rem;
+  color:            var(--text-muted);
+}
+
+.chart-state-icon {
+  font-size:        2rem;
+}
+
+.chart-state-text {
+  font-size:        0.875rem;
+  color:            var(--text-muted);
+  text-align:       center;
+}
+
+/* ─────────────────────────────────────────
+   RECHARTS OVERRIDES
+   Makes Recharts match our dark theme
+   ───────────────────────────────────────── */
+
+/* Tooltip */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background-color: var(--surface-color)  !important;
+  border:           1px solid var(--border-color) !important;
+  border-radius:    var(--border-radius-sm) !important;
+  box-shadow:       var(--shadow) !important;
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip
+.recharts-tooltip-label {
+  color:            var(--text-light) !important;
+  font-weight:      600 !important;
+  margin-bottom:    0.25rem !important;
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip
+.recharts-tooltip-item {
+  color:            var(--text-color) !important;
+}
+
+/* Axis text */
+.recharts-cartesian-axis-tick-value {
+  fill:             var(--text-muted) !important;
+  font-size:        12px !important;
+  font-family:      var(--font-main) !important;
+}
+
+/* Grid lines */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke:           var(--border-color) !important;
+  stroke-opacity:   0.5 !important;
+}
+
+/* Legend text */
+.recharts-legend-item-text {
+  color:            var(--text-muted) !important;
+  font-size:        0.8rem !important;
+}
+
+/* Axis lines */
+.recharts-cartesian-axis-line {
+  stroke:           var(--border-color) !important;
+}
+
+.recharts-cartesian-axis-tick-line {
+  stroke:           var(--border-color) !important;
+}
+
+/* Pie chart label */
+.recharts-pie-label-text {
+  fill:             var(--text-color) !important;
+  font-size:        12px !important;
+}
+
+/* Cursor highlight on hover */
+.recharts-rectangle.recharts-tooltip-cursor {
+  fill:             rgba(108, 99, 255, 0.08) !important;
+}
+
+/* Active dot on line chart */
+.recharts-active-dot circle {
+  stroke:           var(--card-color) !important;
+  stroke-width:     2px !important;
+}
+
+/* ─────────────────────────────────────────
+   CUSTOM TOOLTIP
+   Used by both bar and pie charts
+   ───────────────────────────────────────── */
+.custom-tooltip {
+  background-color: var(--surface-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius-sm);
+  padding:          0.6rem 0.875rem;
+  box-shadow:       var(--shadow);
+}
+
+.custom-tooltip-label {
+  font-size:        0.8rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  margin-bottom:    0.25rem;
+}
+
+.custom-tooltip-value {
+  font-size:        0.875rem;
+  color:            var(--primary-color);
+  font-weight:      600;
+}
+
+.custom-tooltip-sub {
+  font-size:        0.75rem;
+  color:            var(--text-muted);
+  margin-top:       0.15rem;
+}
+
+/* ─────────────────────────────────────────
+   CHART LEGEND
+   ───────────────────────────────────────── */
+.chart-legend {
+  display:          flex;
+  flex-wrap:        wrap;
+  gap:              0.75rem;
+  justify-content:  center;
+  margin-top:       0.75rem;
+}
+
+.legend-item {
+  display:          flex;
+  align-items:      center;
+  gap:              0.4rem;
+  font-size:        0.78rem;
+  color:            var(--text-muted);
+}
+
+.legend-dot {
+  width:            10px;
+  height:           10px;
+  border-radius:    50%;
+  flex-shrink:      0;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .chart-card {
+    padding:        1rem;
+  }
+}
+/* ─────────────────────────────────────────
+   STREAK CALENDAR
+   ───────────────────────────────────────── */
+.streak-calendar {
+  display:          flex;
+  justify-content:  space-between;
+  gap:              0.5rem;
+  height:           100%;
+  align-items:      center;
+}
+
+.streak-calendar-cell {
+  flex:             1;
+  height:           80px;
+  border-radius:    var(--border-radius-sm);
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  justify-content:  center;
+  gap:              0.3rem;
+  transition:       var(--transition);
+  cursor:           default;
+}
+
+.streak-calendar-cell:hover {
+  transform:        scale(1.05);
+}
+
+.streak-calendar-day {
+  font-size:        0.7rem;
+  color:            var(--text-color);
+  font-weight:      600;
+}
+
+.streak-calendar-count {
+  font-size:        0.85rem;
+  color:            var(--text-light);
+  font-weight:      700;
+}
+
+.streak-calendar-legend {
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  gap:              0.3rem;
+  margin-top:       0.75rem;
+  font-size:        0.7rem;
+  color:            var(--text-muted);
+}
+
+.streak-legend-box {
+  width:            12px;
+  height:           12px;
+  border-radius:    2px;
+}

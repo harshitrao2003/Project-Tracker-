@@ -1,0 +1,22 @@
+# Dependencies — very large folders, never upload
+node_modules/
+
+# Environment variables — contains passwords and secrets
+.env
+.env.local
+.env.production
+
+# Build output — generated automatically
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+# Logs
+*.log

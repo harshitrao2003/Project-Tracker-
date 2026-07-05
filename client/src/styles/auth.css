@@ -1,0 +1,391 @@
+/* ============================================
+   auth.css — Login & Register Page Styles
+   Used by both Login.jsx and Register.jsx
+   ============================================ */
+
+/* ─────────────────────────────────────────
+   MAIN CONTAINER
+   Two column layout — left brand, right form
+   ───────────────────────────────────────── */
+.auth-container {
+  display:          flex;
+  min-height:       100vh;
+  background-color: var(--background-color);
+}
+
+/* ─────────────────────────────────────────
+   LEFT PANEL — Branding
+   ───────────────────────────────────────── */
+.auth-left {
+  flex:             1;
+  background:       linear-gradient(
+                      135deg,
+                      var(--surface-color) 0%,
+                      var(--card-color) 100%
+                    );
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  align-items:      center;
+  padding:          3rem;
+  border-right:     1px solid var(--border-color);
+}
+
+.auth-brand {
+  text-align:       center;
+  margin-bottom:    3rem;
+}
+
+.auth-logo {
+  font-size:        4rem;
+  margin-bottom:    1rem;
+}
+
+.auth-brand h1 {
+  font-size:        2rem;
+  font-weight:      700;
+  color:            var(--text-light);
+  margin-bottom:    0.5rem;
+}
+
+.auth-brand p {
+  color:            var(--text-muted);
+  font-size:        1rem;
+}
+
+.auth-features {
+  display:          flex;
+  flex-direction:   column;
+  gap:              1rem;
+  width:            100%;
+  max-width:        300px;
+}
+
+.auth-feature-item {
+  display:          flex;
+  align-items:      center;
+  gap:              1rem;
+  padding:          0.875rem 1.25rem;
+  background-color: var(--background-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius-sm);
+  color:            var(--text-color);
+  font-size:        0.9rem;
+  transition:       var(--transition);
+}
+
+.auth-feature-item:hover {
+  border-color:     var(--primary-color);
+  transform:        translateX(4px);
+}
+
+.feature-icon {
+  font-size:        1.25rem;
+}
+
+/* ─────────────────────────────────────────
+   RIGHT PANEL — Form
+   ───────────────────────────────────────── */
+.auth-right {
+  flex:             1;
+  display:          flex;
+  justify-content:  center;
+  align-items:      center;
+  padding:          2rem;
+  overflow-y:       auto;
+}
+
+.auth-card {
+  width:            100%;
+  max-width:        520px;
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          2.5rem;
+}
+
+/* ─────────────────────────────────────────
+   HEADER
+   ───────────────────────────────────────── */
+.auth-header {
+  text-align:       center;
+  margin-bottom:    2rem;
+}
+
+.auth-header h2 {
+  font-size:        1.75rem;
+  font-weight:      700;
+  color:            var(--text-light);
+  margin-bottom:    0.5rem;
+}
+
+.auth-header p {
+  color:            var(--text-muted);
+  font-size:        0.9rem;
+}
+
+/* ─────────────────────────────────────────
+   ERROR MESSAGE
+   ───────────────────────────────────────── */
+.auth-error {
+  display:          flex;
+  align-items:      center;
+  gap:              0.5rem;
+  background-color: rgba(244, 67, 54, 0.1);
+  border:           1px solid var(--danger-color);
+  border-radius:    var(--border-radius-sm);
+  padding:          0.75rem 1rem;
+  margin-bottom:    1.5rem;
+  color:            var(--danger-color);
+  font-size:        0.875rem;
+}
+
+/* ─────────────────────────────────────────
+   FORM ELEMENTS
+   ───────────────────────────────────────── */
+.auth-form {
+  display:          flex;
+  flex-direction:   column;
+  gap:              1.25rem;
+}
+
+/* Two columns side by side */
+.form-row {
+  display:          grid;
+  grid-template-columns: 1fr 1fr;
+  gap:              1rem;
+}
+
+.form-group {
+  display:          flex;
+  flex-direction:   column;
+  gap:              0.4rem;
+}
+
+.form-group label {
+  font-size:        0.85rem;
+  font-weight:      500;
+  color:            var(--text-color);
+}
+
+.required {
+  color:            var(--danger-color);
+  margin-left:      2px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background-color: var(--surface-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius-sm);
+  color:            var(--text-color);
+  font-size:        0.9rem;
+  padding:          0.65rem 0.875rem;
+  transition:       var(--transition);
+  outline:          none;
+  width:            100%;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color:            var(--text-muted);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color:     var(--primary-color);
+  box-shadow:       0 0 0 3px rgba(108, 99, 255, 0.15);
+}
+
+.form-group select {
+  cursor:           pointer;
+  appearance:       none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238888aa' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat:   no-repeat;
+  background-position: right 0.875rem center;
+  padding-right:    2.5rem;
+}
+
+/* ─────────────────────────────────────────
+   SUBMIT BUTTON
+   ───────────────────────────────────────── */
+.auth-btn {
+  width:            100%;
+  padding:          0.8rem;
+  background-color: var(--primary-color);
+  color:            var(--text-light);
+  border:           none;
+  border-radius:    var(--border-radius-sm);
+  font-size:        1rem;
+  font-weight:      600;
+  cursor:           pointer;
+  transition:       var(--transition);
+  margin-top:       0.5rem;
+}
+
+.auth-btn:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform:        translateY(-1px);
+  box-shadow:       0 4px 12px rgba(108, 99, 255, 0.4);
+}
+
+.auth-btn:disabled {
+  opacity:          0.7;
+  cursor:           not-allowed;
+}
+
+/* ─────────────────────────────────────────
+   LOADING SPINNER
+   ───────────────────────────────────────── */
+.btn-loading {
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  gap:              0.5rem;
+}
+
+.spinner {
+  width:            16px;
+  height:           16px;
+  border:           2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--text-light);
+  border-radius:    50%;
+  animation:        spin 0.7s linear infinite;
+  display:          inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─────────────────────────────────────────
+   FOOTER LINK
+   ───────────────────────────────────────── */
+.auth-footer {
+  text-align:       center;
+  margin-top:       1.5rem;
+  color:            var(--text-muted);
+  font-size:        0.875rem;
+}
+
+.auth-footer a {
+  color:            var(--primary-color);
+  font-weight:      500;
+}
+
+.auth-footer a:hover {
+  color:            var(--primary-hover);
+  text-decoration:  underline;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE — Mobile
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .auth-container {
+    flex-direction:   column;
+  }
+
+  .auth-left {
+    display:          none;
+  }
+
+  .auth-right {
+    padding:          1.5rem 1rem;
+    align-items:      flex-start;
+  }
+
+  .auth-card {
+    padding:          1.5rem;
+  }
+
+  /* Stack two column rows on mobile */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+/* ─────────────────────────────────────────
+   PASSWORD TOGGLE
+   Show / Hide password button inside input
+   ───────────────────────────────────────── */
+.password-wrapper {
+  position:         relative;
+  display:          flex;
+  align-items:      center;
+}
+
+.password-wrapper input {
+  padding-right:    3rem;
+}
+
+.password-toggle {
+  position:         absolute;
+  right:            0.75rem;
+  background:       none;
+  border:           none;
+  cursor:           pointer;
+  font-size:        1rem;
+  color:            var(--text-muted);
+  padding:          0.25rem;
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  transition:       var(--transition);
+  line-height:      1;
+}
+
+.password-toggle:hover {
+  color:            var(--text-color);
+}
+
+/* ─────────────────────────────────────────
+   DEMO CREDENTIALS BOX
+   Helps testers fill form quickly
+   ───────────────────────────────────────── */
+.demo-credentials {
+  margin-top:       1.5rem;
+  padding:          1rem;
+  background-color: rgba(108, 99, 255, 0.08);
+  border:           1px dashed var(--primary-color);
+  border-radius:    var(--border-radius-sm);
+  text-align:       center;
+}
+
+.demo-title {
+  font-size:        0.75rem;
+  font-weight:      600;
+  color:            var(--primary-color);
+  text-transform:   uppercase;
+  letter-spacing:   0.05em;
+  margin-bottom:    0.4rem;
+}
+
+.demo-info {
+  font-size:        0.8rem;
+  color:            var(--text-muted);
+  margin-bottom:    0.2rem;
+}
+
+.demo-info strong {
+  color:            var(--text-color);
+}
+
+.demo-btn {
+  margin-top:       0.75rem;
+  padding:          0.4rem 1rem;
+  background-color: transparent;
+  border:           1px solid var(--primary-color);
+  border-radius:    var(--border-radius-sm);
+  color:            var(--primary-color);
+  font-size:        0.8rem;
+  cursor:           pointer;
+  transition:       var(--transition);
+}
+
+.demo-btn:hover {
+  background-color: var(--primary-color);
+  color:            var(--text-light);
+}

@@ -1,0 +1,65 @@
+/* ============================================
+   loader.css — Loader Spinner Styles
+   ============================================ */
+
+/* Full screen loader */
+.loader-full {
+  position:         fixed;
+  top:              0;
+  left:             0;
+  width:            100vw;
+  height:           100vh;
+  background-color: var(--background-color);
+  z-index:          9999;
+}
+
+/* Wrapper — centers spinner and text */
+.loader-wrapper {
+  display:          flex;
+  flex-direction:   column;
+  justify-content:  center;
+  align-items:      center;
+  gap:              1rem;
+}
+
+/* Spinning circle */
+.loader-spinner {
+  border-radius:    50%;
+  border-style:     solid;
+  border-color:     var(--border-color);
+  border-top-color: var(--primary-color);
+  animation:        loaderSpin 0.8s linear infinite;
+}
+
+/* Size variants */
+.loader-sm {
+  width:            24px;
+  height:           24px;
+  border-width:     2px;
+}
+
+.loader-md {
+  width:            40px;
+  height:           40px;
+  border-width:     3px;
+}
+
+.loader-lg {
+  width:            56px;
+  height:           56px;
+  border-width:     4px;
+}
+
+/* Loading text */
+.loader-text {
+  color:            var(--text-muted);
+  font-size:        0.9rem;
+  letter-spacing:   0.03em;
+}
+
+/* Spin animation */
+@keyframes loaderSpin {
+  to {
+    transform:      rotate(360deg);
+  }
+}

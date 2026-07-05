@@ -1,0 +1,202 @@
+/* ============================================
+   companies.css — Pipeline Kanban Board Styles
+   ============================================ */
+
+/* ─────────────────────────────────────────
+   KANBAN BOARD CONTAINER
+   ───────────────────────────────────────── */
+.kanban-board {
+  display:          flex;
+  gap:              1rem;
+  overflow-x:       auto;
+  padding-bottom:   0.5rem;
+}
+
+/* ─────────────────────────────────────────
+   KANBAN COLUMN
+   ───────────────────────────────────────── */
+.kanban-column {
+  background-color: var(--surface-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  min-width:        270px;
+  max-width:        270px;
+  display:          flex;
+  flex-direction:   column;
+  transition:       var(--transition);
+}
+
+.kanban-column-dragover {
+  border-color:     var(--primary-color);
+  background-color: rgba(108, 99, 255, 0.05);
+}
+
+.kanban-column-header {
+  display:          flex;
+  align-items:      center;
+  gap:              0.5rem;
+  padding:          0.875rem 1rem;
+  border-bottom:    1px solid var(--border-color);
+}
+
+.kanban-column-dot {
+  width:            8px;
+  height:           8px;
+  border-radius:    50%;
+  flex-shrink:      0;
+}
+
+.kanban-column-title {
+  font-size:        0.85rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  flex:             1;
+}
+
+.kanban-column-count {
+  background-color: var(--card-color);
+  border-radius:    20px;
+  padding:          0.1rem 0.55rem;
+  font-size:        0.75rem;
+  color:            var(--text-muted);
+  font-weight:      600;
+}
+
+.kanban-column-body {
+  flex:             1;
+  padding:          0.75rem;
+  display:          flex;
+  flex-direction:   column;
+  gap:              0.75rem;
+  min-height:       120px;
+  max-height:       calc(100vh - 320px);
+  overflow-y:       auto;
+}
+
+.kanban-empty {
+  border:           2px dashed var(--border-color);
+  border-radius:    var(--border-radius-sm);
+  padding:          1.5rem 0.5rem;
+  text-align:       center;
+  color:            var(--text-muted);
+  font-size:        0.8rem;
+}
+
+/* ─────────────────────────────────────────
+   KANBAN CARD
+   ───────────────────────────────────────── */
+.kanban-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius-sm);
+  padding:          0.875rem;
+  cursor:           grab;
+  transition:       var(--transition);
+}
+
+.kanban-card:hover {
+  border-color:     var(--primary-color);
+  box-shadow:       var(--shadow);
+}
+
+.kanban-card:active {
+  cursor:           grabbing;
+  opacity:          0.6;
+}
+
+.kanban-card-header {
+  display:          flex;
+  align-items:      flex-start;
+  justify-content:  space-between;
+  gap:              0.5rem;
+  margin-bottom:    0.4rem;
+}
+
+.kanban-card-title {
+  font-size:        0.875rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  line-height:      1.3;
+}
+
+.kanban-card-actions {
+  display:          flex;
+  gap:              0.3rem;
+  flex-shrink:      0;
+}
+
+.kanban-card-btn {
+  background:       none;
+  border:           none;
+  font-size:        0.75rem;
+  cursor:           pointer;
+  padding:          0.15rem 0.3rem;
+  border-radius:    4px;
+  transition:       var(--transition);
+  opacity:          0.6;
+}
+
+.kanban-card-btn:hover {
+  opacity:          1;
+  background-color: var(--surface-color);
+}
+
+.kanban-card-btn-danger:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.kanban-card-role {
+  font-size:        0.8rem;
+  color:            var(--text-muted);
+  margin-bottom:    0.5rem;
+}
+
+.kanban-card-package {
+  font-size:        0.78rem;
+  color:            var(--success-color);
+  font-weight:      600;
+  margin-bottom:    0.5rem;
+}
+
+.kanban-card-footer {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  padding-top:      0.5rem;
+  border-top:       1px solid var(--border-color);
+}
+
+.kanban-card-date {
+  font-size:        0.72rem;
+  color:            var(--text-muted);
+}
+
+.kanban-card-link {
+  font-size:        0.8rem;
+  text-decoration:  none;
+  opacity:          0.7;
+  transition:       var(--transition);
+}
+
+.kanban-card-link:hover {
+  opacity:          1;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .kanban-board {
+    gap:              0.75rem;
+  }
+
+  .kanban-column {
+    min-width:        220px;
+    max-width:        220px;
+  }
+
+  .kanban-column-body {
+    max-height:       calc(100vh - 380px);
+  }
+}

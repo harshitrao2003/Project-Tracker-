@@ -1,0 +1,387 @@
+/* ============================================
+   progress.css — Progress Page Styles
+   ============================================ */
+
+/* ─────────────────────────────────────────
+   LOADING & ERROR
+   ───────────────────────────────────────── */
+.progress-loading {
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  justify-content:  center;
+  padding:          4rem;
+  gap:              1rem;
+  color:            var(--text-muted);
+}
+
+.progress-loader {
+  width:            40px;
+  height:           40px;
+  border:           3px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius:    50%;
+  animation:        loaderSpin 0.8s linear infinite;
+}
+
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+.progress-error {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  background-color: rgba(244, 67, 54, 0.1);
+  border:           1px solid var(--danger-color);
+  border-radius:    var(--border-radius-sm);
+  padding:          0.75rem 1rem;
+  margin-bottom:    1.5rem;
+  color:            var(--danger-color);
+  font-size:        0.875rem;
+}
+
+.progress-error button {
+  background:       none;
+  border:           1px solid var(--danger-color);
+  border-radius:    var(--border-radius-sm);
+  color:            var(--danger-color);
+  padding:          0.25rem 0.75rem;
+  cursor:           pointer;
+  font-size:        0.8rem;
+  transition:       var(--transition);
+}
+
+.progress-error button:hover {
+  background-color: var(--danger-color);
+  color:            var(--text-light);
+}
+
+/* ─────────────────────────────────────────
+   OVERALL PROGRESS CARD
+   ───────────────────────────────────────── */
+.overall-progress-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          1.5rem;
+  margin-bottom:    1rem;
+}
+
+.overall-progress-info {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  margin-bottom:    1rem;
+}
+
+.overall-progress-info h3 {
+  font-size:        1.1rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  margin-bottom:    0.25rem;
+}
+
+.overall-percent {
+  font-size:        2.5rem;
+  font-weight:      700;
+  line-height:      1;
+}
+
+.overall-progress-bar {
+  height:           10px;
+  background-color: var(--border-color);
+  border-radius:    5px;
+  overflow:         hidden;
+  margin-bottom:    1rem;
+}
+
+.overall-progress-fill {
+  height:           100%;
+  background:       linear-gradient(
+                      90deg,
+                      var(--primary-color),
+                      var(--secondary-color)
+                    );
+  border-radius:    5px;
+  transition:       width 0.6s ease;
+}
+
+/* ─────────────────────────────────────────
+   DIFFICULTY BREAKDOWN
+   ───────────────────────────────────────── */
+.difficulty-breakdown {
+  display:          flex;
+  gap:              1.5rem;
+  flex-wrap:        wrap;
+}
+
+.difficulty-item {
+  display:          flex;
+  align-items:      center;
+  gap:              0.4rem;
+}
+
+.difficulty-dot {
+  width:            10px;
+  height:           10px;
+  border-radius:    50%;
+  flex-shrink:      0;
+}
+
+.difficulty-item-label {
+  font-size:        0.85rem;
+  color:            var(--text-muted);
+}
+
+.difficulty-item-count {
+  font-size:        0.85rem;
+  font-weight:      600;
+  color:            var(--text-light);
+}
+
+/* ─────────────────────────────────────────
+   STREAK ROW
+   ───────────────────────────────────────── */
+.progress-streak-row {
+  display:          grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:              1rem;
+  margin-bottom:    1rem;
+}
+
+.progress-streak-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          1rem 1.25rem;
+  display:          flex;
+  align-items:      center;
+  gap:              0.75rem;
+  transition:       var(--transition);
+}
+
+.progress-streak-card:hover {
+  border-color:     var(--primary-color);
+}
+
+.progress-streak-icon {
+  font-size:        1.75rem;
+}
+
+.progress-streak-value {
+  font-size:        1.5rem;
+  font-weight:      700;
+  color:            var(--text-light);
+  line-height:      1;
+}
+
+.progress-streak-label {
+  font-size:        0.78rem;
+  color:            var(--text-muted);
+  margin-top:       0.2rem;
+}
+
+/* ─────────────────────────────────────────
+   TOPIC PROGRESS CARD
+   ───────────────────────────────────────── */
+.topic-progress-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          1.5rem;
+  margin-bottom:    1rem;
+}
+
+.topic-progress-header {
+  display:          flex;
+  align-items:      center;
+  justify-content:  space-between;
+  margin-bottom:    1.25rem;
+}
+
+.topic-progress-header h3 {
+  font-size:        1rem;
+  font-weight:      600;
+  color:            var(--text-light);
+}
+
+.sort-controls {
+  display:          flex;
+  align-items:      center;
+  gap:              0.5rem;
+}
+
+.sort-label {
+  font-size:        0.8rem;
+  color:            var(--text-muted);
+}
+
+.sort-select {
+  background-color: var(--surface-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius-sm);
+  color:            var(--text-color);
+  font-size:        0.8rem;
+  padding:          0.3rem 0.6rem;
+  outline:          none;
+  cursor:           pointer;
+}
+
+.sort-select:focus {
+  border-color:     var(--primary-color);
+}
+
+/* ─────────────────────────────────────────
+   PROGRESS BARS
+   ───────────────────────────────────────── */
+.progress-bars-list {
+  display:          flex;
+  flex-direction:   column;
+  gap:              0.875rem;
+}
+
+.progress-item {
+  width:            100%;
+}
+
+.progress-header {
+  display:          flex;
+  justify-content:  space-between;
+  align-items:      center;
+  margin-bottom:    0.3rem;
+}
+
+.progress-label {
+  font-size:        0.875rem;
+  color:            var(--text-color);
+  font-weight:      500;
+}
+
+.progress-counts {
+  display:          flex;
+  align-items:      center;
+  gap:              0.5rem;
+}
+
+.progress-percent {
+  font-size:        0.8rem;
+  font-weight:      600;
+  min-width:        35px;
+  text-align:       right;
+}
+
+.progress-fraction {
+  font-size:        0.78rem;
+  color:            var(--text-muted);
+}
+
+.progress-track {
+  height:           8px;
+  background-color: var(--border-color);
+  border-radius:    4px;
+  overflow:         hidden;
+}
+
+.progress-fill {
+  height:           100%;
+  border-radius:    4px;
+  transition:       width 0.5s ease;
+  min-width:        4px;
+}
+
+/* ─────────────────────────────────────────
+   EMPTY STATE
+   ───────────────────────────────────────── */
+.progress-empty {
+  text-align:       center;
+  padding:          3rem 1rem;
+  color:            var(--text-muted);
+}
+
+.progress-empty-icon {
+  font-size:        3rem;
+  margin-bottom:    1rem;
+}
+
+.progress-empty h3 {
+  font-size:        1.1rem;
+  color:            var(--text-color);
+  margin-bottom:    0.5rem;
+}
+
+/* ─────────────────────────────────────────
+   PLATFORM STATS
+   ───────────────────────────────────────── */
+.platform-stats-card {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  padding:          1.5rem;
+  margin-bottom:    1rem;
+}
+
+.platform-stats-card h3 {
+  font-size:        1rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  margin-bottom:    1.25rem;
+}
+
+.platform-grid {
+  display:          grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap:              1.25rem;
+}
+
+.platform-item {
+  display:          flex;
+  flex-direction:   column;
+  gap:              0.4rem;
+}
+
+.platform-name {
+  font-size:        0.875rem;
+  font-weight:      600;
+  color:            var(--text-light);
+}
+
+.platform-counts {
+  display:          flex;
+  gap:              0.3rem;
+  font-size:        0.8rem;
+}
+
+.platform-solved {
+  font-weight:      600;
+}
+
+.platform-total {
+  color:            var(--text-muted);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .progress-streak-row {
+    grid-template-columns: 1fr;
+  }
+
+  .overall-progress-info {
+    flex-direction:   column;
+    align-items:      flex-start;
+    gap:              0.5rem;
+  }
+
+  .topic-progress-header {
+    flex-direction:   column;
+    align-items:      flex-start;
+    gap:              0.75rem;
+  }
+
+  .platform-grid {
+    grid-template-columns: 1fr;
+  }
+}

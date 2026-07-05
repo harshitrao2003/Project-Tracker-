@@ -1,0 +1,313 @@
+/* ============================================
+   leaderboard.css — Leaderboard Page Styles
+   ============================================ */
+
+/* ─────────────────────────────────────────
+   PODIUM — Top 3
+   ───────────────────────────────────────── */
+.leaderboard-podium {
+  display:          flex;
+  justify-content:  center;
+  align-items:      flex-end;
+  gap:              1rem;
+  margin-bottom:    2rem;
+  padding:          1.5rem 1rem 0;
+}
+
+.podium-card {
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  gap:              0.4rem;
+  padding:          1.25rem 1.5rem;
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  transition:       var(--transition);
+  min-width:        150px;
+  text-align:       center;
+}
+
+.podium-card:hover {
+  transform:        translateY(-4px);
+  box-shadow:       var(--shadow);
+}
+
+/* 1st place is taller */
+.podium-1 {
+  border-color:     gold;
+  padding-top:      1.75rem;
+  order:            2;
+}
+
+.podium-2 {
+  border-color:     silver;
+  order:            1;
+}
+
+.podium-3 {
+  border-color:     #cd7f32;
+  order:            3;
+}
+
+.podium-crown {
+  font-size:        1.5rem;
+  animation:        float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+.podium-avatar {
+  width:            52px;
+  height:           52px;
+  border-radius:    50%;
+  background:       linear-gradient(
+                      135deg,
+                      var(--primary-color),
+                      var(--secondary-color)
+                    );
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  font-size:        1.25rem;
+  font-weight:      700;
+  color:            var(--text-light);
+}
+
+.podium-avatar-1 {
+  width:            60px;
+  height:           60px;
+  font-size:        1.5rem;
+}
+
+.podium-badge {
+  font-size:        1.5rem;
+  line-height:      1;
+}
+
+.podium-name {
+  font-size:        0.9rem;
+  font-weight:      600;
+  color:            var(--text-light);
+}
+
+.podium-college {
+  font-size:        0.72rem;
+  color:            var(--text-muted);
+  max-width:        140px;
+  overflow:         hidden;
+  text-overflow:    ellipsis;
+  white-space:      nowrap;
+}
+
+.podium-score {
+  font-size:        1.25rem;
+  font-weight:      700;
+  color:            var(--primary-color);
+  display:          flex;
+  align-items:      baseline;
+  gap:              0.3rem;
+}
+
+.podium-score span {
+  font-size:        0.7rem;
+  color:            var(--text-muted);
+  font-weight:      400;
+}
+
+/* ─────────────────────────────────────────
+   LEADERBOARD TABLE
+   ───────────────────────────────────────── */
+.leaderboard-table-wrapper {
+  background-color: var(--card-color);
+  border:           1px solid var(--border-color);
+  border-radius:    var(--border-radius);
+  overflow:         hidden;
+  margin-bottom:    1rem;
+}
+
+.leaderboard-table {
+  width:            100%;
+  border-collapse:  collapse;
+}
+
+.leaderboard-table th {
+  background-color: var(--surface-color);
+  color:            var(--text-muted);
+  font-size:        0.78rem;
+  font-weight:      600;
+  text-transform:   uppercase;
+  letter-spacing:   0.05em;
+  padding:          0.75rem 1rem;
+  text-align:       left;
+  border-bottom:    1px solid var(--border-color);
+}
+
+.leaderboard-table td {
+  padding:          0.875rem 1rem;
+  border-bottom:    1px solid var(--border-color);
+  font-size:        0.875rem;
+  color:            var(--text-color);
+  vertical-align:   middle;
+}
+
+.leaderboard-table tr:last-child td {
+  border-bottom:    none;
+}
+
+/* ─────────────────────────────────────────
+   ROW VARIANTS
+   ───────────────────────────────────────── */
+.leaderboard-row:hover td {
+  background-color: var(--card-hover);
+}
+
+/* Current user row highlight */
+.leaderboard-row-me td {
+  background-color: rgba(108, 99, 255, 0.08);
+}
+
+.leaderboard-row-me:hover td {
+  background-color: rgba(108, 99, 255, 0.12);
+}
+
+/* Top 3 subtle left border */
+.leaderboard-row-top1 td:first-child {
+  border-left:      3px solid gold;
+}
+
+.leaderboard-row-top2 td:first-child {
+  border-left:      3px solid silver;
+}
+
+.leaderboard-row-top3 td:first-child {
+  border-left:      3px solid #cd7f32;
+}
+
+/* ─────────────────────────────────────────
+   TABLE CELLS
+   ───────────────────────────────────────── */
+.leaderboard-rank {
+  width:            60px;
+  text-align:       center;
+}
+
+.rank-badge {
+  font-size:        1.1rem;
+  font-weight:      700;
+  color:            var(--text-muted);
+}
+
+.leaderboard-user {
+  display:          flex;
+  align-items:      center;
+  gap:              0.75rem;
+}
+
+.leaderboard-avatar {
+  width:            36px;
+  height:           36px;
+  border-radius:    50%;
+  background:       linear-gradient(
+                      135deg,
+                      var(--primary-color),
+                      var(--secondary-color)
+                    );
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  font-size:        0.875rem;
+  font-weight:      700;
+  color:            var(--text-light);
+  flex-shrink:      0;
+}
+
+.leaderboard-name {
+  font-size:        0.875rem;
+  font-weight:      600;
+  color:            var(--text-light);
+  display:          flex;
+  align-items:      center;
+  gap:              0.4rem;
+}
+
+.you-badge {
+  background-color: rgba(108, 99, 255, 0.2);
+  color:            var(--primary-color);
+  border-radius:    20px;
+  padding:          0.1rem 0.5rem;
+  font-size:        0.65rem;
+  font-weight:      700;
+}
+
+.leaderboard-year {
+  font-size:        0.72rem;
+  color:            var(--text-muted);
+}
+
+.leaderboard-college {
+  font-size:        0.82rem;
+  color:            var(--text-muted);
+}
+
+.leaderboard-branch {
+  font-size:        0.82rem;
+  color:            var(--text-muted);
+}
+
+.leaderboard-total {
+  font-size:        1rem;
+  font-weight:      700;
+  color:            var(--primary-color);
+}
+
+.leaderboard-streak {
+  font-size:        0.85rem;
+  font-weight:      600;
+  color:            var(--warning-color);
+}
+
+/* ─────────────────────────────────────────
+   MY RANK CARD
+   ───────────────────────────────────────── */
+.my-rank-card {
+  background-color: rgba(108, 99, 255, 0.08);
+  border:           1px solid rgba(108, 99, 255, 0.3);
+  border-radius:    var(--border-radius-sm);
+  padding:          0.875rem 1.25rem;
+  display:          flex;
+  align-items:      center;
+  gap:              1rem;
+  font-size:        0.875rem;
+  color:            var(--text-color);
+  flex-wrap:        wrap;
+}
+
+.my-rank-card strong {
+  font-size:        1.1rem;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  .leaderboard-podium {
+    gap:              0.5rem;
+  }
+
+  .podium-card {
+    min-width:        100px;
+    padding:          1rem;
+  }
+
+  .leaderboard-table th:nth-child(3),
+  .leaderboard-table td:nth-child(3),
+  .leaderboard-table th:nth-child(4),
+  .leaderboard-table td:nth-child(4) {
+    display:          none;
+  }
+}
