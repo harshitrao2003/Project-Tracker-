@@ -266,9 +266,89 @@ const getMe = async (req, res) => {
   }
 }
 
+// ============================================
+// @desc    Update user profile
+// @route   PUT /api/auth/profile
+// @access  Private
+// ============================================
+const updateProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id)
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      })
+    }
+
+    const {
+      name,
+      college,
+      branch,
+      graduationYear,
+      profileImage,
+      linkedin,
+      github,
+      leetcode,
+      geeksforgeeks
+    } = req.body
+
+    // Update only provided fields
+    if (name           !== undefined) user.name           = name
+    if (college        !== undefined) user.college        = college
+    if (branch         !== undefined) user.branch         = branch
+    if (graduationYear !== undefined) user.graduationYear = graduationYear
+    if (profileImage   !== undefined) user.profileImage   = profileImage
+    if (linkedin       !== undefined) user.linkedin       = linkedin
+    if (github         !== undefined) user.github         = github
+    if (leetcode       !== undefined) user.leetcode       = leetcode
+    if (geeksforgeeks  !== undefined) user.geeksforgeeks  = geeksforgeeks
+
+    await user.save()
+
+    res.status(200).json({
+      success: true,
+      message: 'Profile updated successfully',
+      user: {
+        id:             user._id,
+        name:           user.name,
+        email:          user.email,
+        college:        user.college,
+        branch:         user.branch,
+        graduationYear: user.graduationYear,
+        profileImage:   user.profileImage,
+        linkedin:       user.linkedin,
+        github:         user.github,
+        leetcode:       user.leetcode,
+        geeksforgeeks:  user.geeksforgeeks,
+        currentStreak:  user.currentStreak,
+        longestStreak:  user.longestStreak,
+        createdAt:      user.createdAt
+      }
+    })
+
+  } catch (error) {
+    if (error.name === 'ValidationError') {
+      const messages = Object.values(error.errors).map(e => e.message)
+      return res.status(400).json({
+        success: false,
+        message: messages.join(', ')
+      })
+    }
+
+    console.error('Update Profile Error:', error)
+    res.status(500).json({
+      success: false,
+      message: 'Server error updating profile'
+    })
+  }
+}
+
 module.exports = {
   registerUser,
   loginUser,
   logoutUser,
-  getMe
+  getMe,
+  updateProfile
 }

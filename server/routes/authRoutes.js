@@ -1,7 +1,3 @@
-// ============================================
-// routes/authRoutes.js
-// ============================================
-
 const express = require('express')
 const router  = express.Router()
 
@@ -9,33 +5,19 @@ const {
   registerUser,
   loginUser,
   logoutUser,
-  getMe
+  getMe,
+  updateProfile
 } = require('../controllers/authController')
 
-// Import protect middleware
 const { protect } = require('../middleware/authMiddleware')
 
-// ─────────────────────────────────────────
-// PUBLIC ROUTES — No token needed
-// ─────────────────────────────────────────
-
-// POST /api/auth/register
+// Public routes
 router.post('/register', registerUser)
+router.post('/login',    loginUser)
+router.post('/logout',   logoutUser)
 
-// POST /api/auth/login
-router.post('/login', loginUser)
-
-// POST /api/auth/logout
-router.post('/logout', logoutUser)
-
-// ─────────────────────────────────────────
-// PROTECTED ROUTES — Token required
-// protect middleware runs before getMe
-// If token invalid → 401 returned immediately
-// If token valid   → getMe handler runs
-// ─────────────────────────────────────────
-
-// GET /api/auth/me
-router.get('/me', protect, getMe)
+// Protected routes
+router.get('/me',         protect, getMe)
+router.put('/profile',    protect, updateProfile)
 
 module.exports = router
