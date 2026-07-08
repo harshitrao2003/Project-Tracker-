@@ -44,6 +44,11 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+// Temporary test — remove after confirming
+app.get('/', (req, res) => {
+  res.json({ message: 'Server is alive' })
+})
+
 // ============================================
 // HEALTH CHECK
 // ============================================
