@@ -11,11 +11,18 @@ export default defineConfig({
       port:     5173
     },
     proxy: {
+      // Only used in development
       '/api': {
         target:       'http://localhost:5000',
         changeOrigin: true,
         secure:       false,
       }
     }
+  },
+  build: {
+    outDir:    'dist',
+    sourcemap: false,
+    // Reduce bundle size warnings
+    chunkSizeWarningLimit: 1600
   }
 })
