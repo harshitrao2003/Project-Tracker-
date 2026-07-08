@@ -20,22 +20,12 @@ connectDB()
 // MIDDLEWARE
 // ============================================
 app.use(cors({
-  origin: function(origin, callback) {
-    // Allow requests with no origin (mobile apps, Postman)
-    if (!origin) return callback(null, true)
-
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:3000',
-      process.env.CLIENT_URL
-    ].filter(Boolean)
-
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:3000',
+    'https://project-tracker-five-mu.vercel.app',
+    process.env.CLIENT_URL
+  ].filter(Boolean),
   credentials:    true,
   methods:        ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
